@@ -1,0 +1,56 @@
+._card
+    border-radius: $br
+    background: #FFF
+    transition: all .242s ease-in
+
+.card,
+.card-def
+    @extend ._card
+    padding: 0 $ds_x
+    border: 1px solid $ip-br
+.card-def
+    &:hover
+        background: $def_s
+
+.card-def,
+.card-board
+    padding: $ds $ds_x2
+    &:hover 
+        background: #FFF
+
+.card-board
+    @extend .bxs
+    @extend ._card
+    padding-left: $ds_x2
+    padding-right: 0px
+
+// 文本框
+.form-def
+    input,
+    select,
+    textarea,
+    .input-money
+        @extend .input-sus
+        border-radius: $br_t !important
+
+.card-invite
+    padding-top: $ds_s
+    padding-bottom: $ds_s
+    div
+        line-height: $lh_x2
+
+//  
+.card-page
+    border: none
+    padding: $ds $ds_x2
+    margin: $ds_x 0 $ds_x2
+
+// 过滤的结果
+
+$card_filter: #7DF1B0
+.card-filter
+    border-radius: $br_s
+    padding: $ds $ds_x2
+    background: $card_filter
+
+// WORK CARD

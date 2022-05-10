@@ -1,0 +1,53 @@
+<template>
+    <div class="fx-s crumb">
+        <nav class="fx-l">
+            <div v-for="(v, i) in crumbs" :key="i" class="">
+                <div class="d-ib" :class="{ 'sus': i < long, 'tid': i >= long }">{{ txts[v] }}</div>
+                <span v-if="i < long" class="px"><i class="mdi mdi-chevron-right"></i></span>
+            </div>
+        </nav>
+        <div>
+            <slot></slot>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            crumbs: [
+
+            ],
+            txts: {
+                'accounting': '會計',
+                'consume': '公司支出',
+                'contrast': '產品對比',
+                'producenter': '產品信息',
+                'inventory': '產品庫存',
+                'staffmanage': '員工管理',
+                'salarymanage': '工資發放',
+                'acc_form_salary': '編輯工資管理',
+                'order': '訂單',
+                'add_order': '新增訂單'
+            }
+        }
+    },
+    computed: {
+        long() { return this.crumbs.length - 1 }
+    },
+    watch: {
+        '$route': (n, o) => {
+            console.log('開始監察')
+        }
+    },
+    mounted() {
+        let res = this.$route.path.split('/')
+        this.crumbs = res ? res.filter(e => e != '').filter(e => e != 'admin') : []
+    }
+}
+</script>
+
+<style>
+
+</style>
